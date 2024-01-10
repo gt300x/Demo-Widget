@@ -51,27 +51,16 @@ function App() {
       formData.append('width', canvaswidth);
       formData.append('height', canvasheight);
       
-      fetch(`https://homekynd.net/create_floor`, {
-        method: "POST",
-        body: formData,
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        },
-      })
-      .then(response => response.json())
-      .then(result => {
-        formData.append('floor', result.data.message);
-
-
-        fetch('https://room-env.vercel.app/api/v1/widget', {
-          method: "POST",
-          body: formData,
+      axios.post(`https://homekynd.net/create_floor`, formData, {
           headers: {
-            'Content-Type': 'multipart/form-data'
+              'Content-Type': 'multipart/form-data'
           },
-        })
-        .then(response => response.json())
-        .then(data => {
+          
+      })
+      .then((result) => {
+        formData.append('floor', result.data.message);
+        axios.post('https://room-env.vercel.app/api/v1/widget', formData)
+        .then(({data}) => {
           
           if(data.data.enable){
 
