@@ -152,6 +152,29 @@ function App() {
 
   return (
     <div className="App">
+      <div className='header'>
+        <div className='header-left'>
+          <div className='title'>Super Cool Home</div>
+        </div>
+        <div className='header-label-value-container'>
+          <div className='header-label-value'>
+            <div className='header-label'>Rooms</div>
+            <div className='header-value'>2</div>
+          </div>
+          <div className='header-label-value'>
+            <div className='header-label'>Built</div>
+            <div className='header-value'>2023</div>
+          </div>
+          <div className='header-label-value'>
+            <div className='header-label'>Sq. Feet</div>
+            <div className='header-value'>1200</div>
+          </div>
+        </div>
+        <div className='header-right'>
+          <div className='price'>$499,999</div>
+        </div>
+      </div>
+
       <div className="App-container">
         <div className="left">
           <div className="item-list">
@@ -162,11 +185,24 @@ function App() {
             }
           </div>
         </div>
+
         <div className="right">
-          <img src={imageUrl} className="image-content"/>
-          <div className='icon' onClick={onHandle}>
-            <img src="/icon.png" width={100}/>
+          <img src={imageUrl} className="image-content" />
+          
+          <div className='icon'>
+            <button class="stage-btn" onClick={onHandle}><img src="/img/NoLabelLogo.png" style={{ width: '20px', height: '26px' }} />TRY ME</button>
           </div>
+
+          <hr className='section-break' style={{margin:"20px 0px 14px 0px"}}></hr>
+
+          <div className='section-header'>
+            <div className='section-title'>Location</div>
+            <div className='address'> 111 Warbler Ln, Brisbane, CA 94005, USA</div>
+          </div>
+          <div className='section-content'>
+            <img src="/img/GoogleMap.png" className="google-map" />
+          </div>
+
         </div>
       </div>
     </div>
