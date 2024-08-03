@@ -59,7 +59,7 @@ function App() {
       })
       .then((result) => {
         formData.append('floor', result.data.message);
-        axios.post('https://room-env.vercel.app/api/v1/widget', formData)
+        axios.post('https://app.homekynd.com/api/v1/widget', formData)
         .then(({data}) => {
           
           if(data.data.enable){
